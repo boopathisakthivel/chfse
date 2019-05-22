@@ -27,3 +27,13 @@ Technology Overview
 - SpringBoot
 - Gradle
 - MongoDB
+
+
+## Frontend - 732352-hackathon-frontend
+
+- ReactJS
+- React-Redux
+- React-Router
+- MaterialUI
+- SCSS
+- Webpack
