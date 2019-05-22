@@ -16,9 +16,9 @@
 	* Port 8930
 	* Register SkillsTechnologies as eureka client and register current server url to Eureka server
 	
-## 301409-hackathon-backend project
+## 732352-hackathon-backend project
 	* Port 8950
-	* Register 301409-hackathon-backend as eureka client and register current server url to Eureka server
+	* Register 732352-hackathon-backend as eureka client and register current server url to Eureka server
 	
 	
 ## Running Procedure
@@ -30,7 +30,7 @@
 	* sudo -s
 	* ./mongod -> Mongodb runs on port 27017
 	
-	* Run 301409-hackathon-backend project
+	* Run 732352-hackathon-backend project
 	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails\
 	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
 	

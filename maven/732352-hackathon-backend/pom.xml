@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hackathon</groupId>
-	<artifactId>301409-hackathon-backend</artifactId>
+	<artifactId>732352-hackathon-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>301409-hackathon-backend</name>
+	<name>732352-hackathon-backend</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.hackathon'
 version = '0.0.1-SNAPSHOT'
-description = """301409-hackathon-backend"""
+description = """732352-hackathon-backend"""
 
 sourceCompatibility = '1.8'
 

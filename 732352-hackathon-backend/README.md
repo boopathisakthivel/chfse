@@ -39,8 +39,8 @@
 	* Install Docker
 	* Check Docker Version : docker --version
 	
-	* Create Dockerfile in 301409-hackathon-backend project
-	* Go to 301409-hackathon-backend folder
+	* Create Dockerfile in 732352-hackathon-backend project
+	* Go to 732352-hackathon-backend folder
 	
 	* Build Image -> docker build -t spring-docker .
 	* Run Image -> Docker run –p 8080:8080 spring-docker

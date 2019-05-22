@@ -1,6 +1,6 @@
  
 ## Initial Project SetUp
-    * Create new Project -> ng new 301409-hackathon-frontend
+    * Create new Project -> ng new 732352-hackathon-frontend
     * npm install -> install dependencies based on package.json
     * npm audit fix -> Fix vulnerability
     * ng serve -> run angular Project -> http://localhost:4200/
