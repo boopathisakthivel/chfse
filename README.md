@@ -1,7 +1,7 @@
-Introduction
+# Introduction
 -
 
-Technology Overview
+# Technology Overview
 
 ## Micro service 1 - EurekaDiscoveryServer-Scala
 
