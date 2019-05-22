@@ -9,8 +9,8 @@
 	* sudo -s
 	* ./mongod -> Mongodb runs on port 27017
 	
-	* Run 301409-hackathon-backend project
-	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails\
+	* Run 732352-hackathon-backend project
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails
 	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
 	
 
