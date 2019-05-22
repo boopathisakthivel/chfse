@@ -1,4 +1,6 @@
-# Spring Boot, Spring MVC with MongoDB Integration, 
+This is backup project with maven build
+
+# Spring Boot, Spring MVC with MongoDB Integration
 
 ## Running Procedure
 	* Run EurekaDiscoveryServer, ZuulService and SkillsTechnologies in the order
