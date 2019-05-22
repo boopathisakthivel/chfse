@@ -1,5 +1,9 @@
 # Introduction
--
+
+This project aims to explore multiple JVM languages and SpringBoot application with multiple futures such as Micro Service Discovery, Gateway management.
+
+I am trying to explore frontend ReactJS application with Redux.
+
 
 # Technology Overview
 
