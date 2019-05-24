@@ -6,19 +6,20 @@
     "flow-bin": "^0.98.1",
     "flow-coverage-report": "^0.6.1"
   },
-  "peerDependencies": {
-
-  },
+  "peerDependencies": {},
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "^4.0.0",
     "classnames": "^2.2.6",
+    "clsx": "^1.0.4",
     "lodash": "^4.17.4",
     "prop-types": "^15.7.2",
+    "react": "^16.8.6",
     "react-controllables": "^0.6.0",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
     "recompose": "^0.30.0"
   },
   "scripts": {

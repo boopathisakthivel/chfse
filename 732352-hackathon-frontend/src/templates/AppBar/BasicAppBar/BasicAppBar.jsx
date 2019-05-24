@@ -13,6 +13,7 @@ import withWidth, { isWidthDown } from '@material-ui/core/withWidth';
 import compose from 'recompose/compose';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import type { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import Icon from '@material-ui/core/Icon';
 
 import type { Classes } from '../../../types';
 import styles from './styles';
@@ -30,8 +31,21 @@ type Props = {
 
 type Link = {
   label: string,
+  icon?: any, // Not the best solution
   href?: string,
   onClick?: Function,
+
+};
+
+const MaterialIcon = ({ icon }) => {
+  let iconName = icon.replace(/Icon$/, '')
+  let resolved = require(`@material-ui/icons/${iconName}`).default
+  
+  if (!resolved) {
+      throw Error(`Could not find material-ui-icons/${iconName}`)
+  }
+
+  return React.createElement(resolved)
 };
 
 class BasicAppBar extends React.PureComponent<Props> {
@@ -69,6 +83,18 @@ class BasicAppBar extends React.PureComponent<Props> {
     );
   };
 
+
+
+  renderIcon = (link: Link) => {
+    if (link.icon) {
+      return <link.icon />;
+    } else if (link.iconName) {
+      return <MaterialIcon icon={link.iconName} />;
+    }
+
+    return <span>{link.label}</span>;
+  };
+
   render() {
     const {
       links, menuIconAlways, width, classes,
@@ -84,14 +110,14 @@ class BasicAppBar extends React.PureComponent<Props> {
         <Hidden xsDown>
           <div className={classes.links}>
             {map(links, (link: Link): React.Element<any> => (
-              <Button
+              <IconButton
                 onClick={link.onClick || null}
                 href={link.href || undefined}
                 color="inherit"
                 key={link.label}
               >
-                {link.label}
-              </Button>
+                {this.renderIcon(link)}
+              </IconButton>
             ))}
           </div>
         </Hidden>

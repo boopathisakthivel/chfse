@@ -21,6 +21,7 @@ import { ParticipationMetricDetailsComponent } from './views/dashboard/participa
 import { EngagementMetricsComponent } from './views/dashboard/engagement-metrics.component';
 import { GenericMetricsComponent } from './views/dashboard/generic-metrics.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

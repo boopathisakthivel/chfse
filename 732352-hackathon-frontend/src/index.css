@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.pageContent {
+  padding: 20px;
+  width: 100%;
+}
+
+.pageCard {
+  max-width: 250px;
+  height: 250px;
+  display: inline-block;
+  margin: 10px;
+}
