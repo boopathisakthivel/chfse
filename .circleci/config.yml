@@ -3,8 +3,7 @@ jobs:
   build:
     working_directory: ~/mern-starter
     docker:
-      - image: circleci/node:4.8.2-jessie
-      - image: mongo:3.4.4-jessie
+      - image: circleci/latest
     steps:
       - checkout
       - run:
@@ -21,8 +20,7 @@ jobs:
             - node_modules
   test:
     docker:
-      - image: circleci/node:4.8.2-jessie
-      - image: mongo:3.4.4-jessie
+      - image: circleci/latest
     steps:
       - checkout
       - run:
