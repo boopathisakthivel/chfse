@@ -1,0 +1,16 @@
+{
+  "name": "chfse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/boopathisakthivel/chfse.git",
+  "author": "Boopathi Sakthivel <boopathisakthivel.in@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha test/spec"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
+  }
+}
