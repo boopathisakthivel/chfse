@@ -6,11 +6,12 @@
   "author": "Boopathi Sakthivel <boopathisakthivel.in@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha test/spec"
+    "test": "mocha test/spec --reporter mocha-junit-reporter --reporter-options ./test-results.xml"
   },
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
+    "mocha-junit-reporter": "^1.22.0",
     "nyc": "^14.1.1"
   }
 }
