@@ -28,18 +28,18 @@ jobs:
           command: npm install
       - run:
           name: Test
-          command: npm test
+          command: npm run testUnit
       - run:
           name: Generate code coverage
           command: npm run cover
       - store_artifacts:
-          path: test1/test-results.xml
+          path: test_result/test-results.xml
           prefix: tests
       - store_artifacts:
-          path: test1/coverage
+          path: test_result/coverage
           prefix: coverage
       - store_test_results:
-          path: test1
+          path: test_result
           prefix: tests
 
 

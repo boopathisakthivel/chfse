@@ -6,9 +6,8 @@
   "author": "Boopathi Sakthivel <boopathisakthivel.in@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test1": "mocha test/spec --reporter mocha-junit-reporter --reporter-options ./test-results.xml",
-	"test": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test1/test-results.xml test/spec",
-    "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test1/coverage"
+	"testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
+    "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test_result/coverage"
   },
   "dependencies": {
     "chai": "^4.2.0",
