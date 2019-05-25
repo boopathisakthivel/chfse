@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: /tmp
     docker:
       - image: circleci/node:latest
     steps:
@@ -32,7 +33,7 @@ jobs:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=html --reporter=text'
       - store_artifacts:
-          path: test-results
+          path: test-results.xml
           prefix: tests
       - store_artifacts:
           path: coverage
