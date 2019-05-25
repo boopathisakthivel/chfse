@@ -26,18 +26,23 @@ jobs:
       - run:
           name: Install npm wee
           command: npm install
-      - run:
-          name: Test
-          command: npm test
+     - run:
+          name: Run unit tests
+          command: npm run test
       - run:
           name: Generate code coverage
-          command: './node_modules/.bin/nyc report --reporter=html --reporter=text'
+          command: npm run cover
+          when: always
+
       - store_artifacts:
-          path: test-results.xml
+          path: test1/test-results.xml
           prefix: tests
       - store_artifacts:
-          path: coverage
+          path: test1/coverage
           prefix: coverage
+      - store_test_results:
+          path: test1/test-results.xml
+          prefix: tests
 
 workflows:
   version: 2
