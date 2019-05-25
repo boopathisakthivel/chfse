@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /tmp
+    working_directory: /tmp/chfse
     docker:
       - image: circleci/node:latest
     steps:
@@ -33,10 +33,10 @@ jobs:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=html --reporter=text'
       - store_artifacts:
-          path: /tmp/test-results.xml
+          path: /tmp/chfse/test-results.xml
           prefix: tests
       - store_artifacts:
-          path: /tmp/coverage
+          path: /tmp/chfse/coverage
           prefix: coverage
 
 workflows:
