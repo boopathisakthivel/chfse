@@ -41,7 +41,7 @@ jobs:
           path: test1/coverage
           prefix: coverage
       - store_test_results:
-          path: test1/test-results.xml
+          path: test1
           prefix: tests
 
 workflows:
