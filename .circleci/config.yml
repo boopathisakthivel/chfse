@@ -33,10 +33,10 @@ jobs:
           name: Generate code coverage
           command: './node_modules/.bin/nyc report --reporter=html --reporter=text'
       - store_artifacts:
-          path: /tmp/chfse/test-results.xml
+          path: test-results.xml
           prefix: tests
       - store_artifacts:
-          path: /tmp/chfse/coverage
+          path: coverage
           prefix: coverage
 
 workflows:
