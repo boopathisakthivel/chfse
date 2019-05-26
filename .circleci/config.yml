@@ -65,8 +65,7 @@ jobs:
       - persist_to_workspace:
           root: ~/app
           paths: 
-            - _book/index.html
-            - _book/gitbook/*
+            - _book/*
   docs-deploy:
     docker:
       - image: circleci/node:latest
