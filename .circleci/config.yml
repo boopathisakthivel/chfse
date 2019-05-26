@@ -41,7 +41,7 @@ jobs:
       - store_test_results:
           path: test_result
           prefix: tests
-  docs:
+  docs-build:
     docker:
       - image: circleci/node:latest
     steps:
@@ -91,10 +91,16 @@ workflows:
           filters:
             branches:
               only: master
+      - docs-build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
       - docs-deploy:
           requires:
             - test
-            - docs
+            - docs-build
           filters:
             branches:
               only: master
