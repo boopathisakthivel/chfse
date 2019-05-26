@@ -8,7 +8,7 @@
   "scripts": {
     "docs": "gitbook build",
     "docs-serve": "gitbook serve",
-    "docs-deploy": "gh-pages --dist ~/app",
+    "docs-deploy": "gh-pages --dist _books",
     "testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
     "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test_result/coverage"
   },
