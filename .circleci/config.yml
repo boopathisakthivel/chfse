@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /tmp/chfse
+    working_directory: ~/app
     docker:
       - image: circleci/node:latest
     steps:
@@ -42,7 +42,7 @@ jobs:
           path: test_result
           prefix: tests
   docs-build:
-    working_directory: ~/tmp/chfse
+    working_directory: ~/app
     docker:
       - image: circleci/node:latest
     steps:
@@ -63,7 +63,7 @@ jobs:
           name: build site
           command: npm run docs
       - persist_to_workspace:
-          root: /tmp/chfse
+          root: ~/app
           paths: 
             - _book/index.html
             - _book/gitbook/*
@@ -73,7 +73,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/chfse
+          at: ~/app
       - run:
           name: Install and configure dependencies
           command: |
