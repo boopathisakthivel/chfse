@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+}
+
+group = 'com.hackathon'
+version = '0.0.1-SNAPSHOT'
+description = """732352-hackathon-backend"""
+
+sourceCompatibility = '1.8'
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://repo.spring.io/milestone'
+    }
+
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+	
+	jcenter()
+}
+configurations {
+    provided.all*.exclude group: 'javax.servlet'
+	provided.all*.exclude group: 'com.google.code.gson'
+	
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version:'2.1.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.1.5.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version:'2.1.1.RELEASE'
+    compile group: 'org.apache.poi', name: 'poi', version:'3.17'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version:'3.17'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.1.5.RELEASE'
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,32 @@
+plugins {
+    id 'groovy'
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+}
+
+group = 'com.mentorondemand'
+version = '0.0.1-SNAPSHOT'
+
+description = """SkillsTechnologies"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+configurations {
+	provided.all*.exclude group: 'com.google.code.gson'
+}
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+    jcenter()
+}
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.1.5.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version:'2.1.0.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.1.5.RELEASE'
+}

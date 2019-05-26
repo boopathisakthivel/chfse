@@ -1,0 +1,23 @@
+{
+  "name": "chfse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/boopathisakthivel/chfse.git",
+  "author": "Boopathi Sakthivel <boopathisakthivel.in@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "gitbook build",
+    "docs-serve": "gitbook serve",
+	  "testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
+    "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test_result/coverage"
+  },
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "mocha-junit-reporter": "^1.22.0",
+    "nyc": "^14.1.1"
+  }
+}
