@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <i class="icon-picture"></i> <b>Participation Metrics DashBoard</b>
+  </div>
+  <div class="card-body">
+    <label> <b>Participation Metrics </b></label>
+    <select (change)="onChange($event)" class="mdb-select md-form colorful-select dropdown-primary" searchable="Search here..">
+      <option value="">Select</option>
+      <option value="1">Head Count</option>
+      <option value="2">Unique Volunteers By Location</option>
+      <option value="3">Unique Volunteers By Business Unit</option>
+    </select>
+    <br>
+  </div>
+  <ng-container *ngIf="headCountDisplay">
+    <app-user-details></app-user-details>
+  </ng-container>
+  <ng-container *ngIf="uniqueVolunteeringDetails">
+    <app-participation-metric-details [selectedParticiaptionMetric]="selectedParticiaptionMetric"></app-participation-metric-details>
+  </ng-container>
+  <ng-container *ngIf="uniqueVolunteeringDetailsBu">
+      <app-participation-metric-details [selectedParticiaptionMetric]="selectedParticiaptionMetric"></app-participation-metric-details>
+    </ng-container>
+</div>
