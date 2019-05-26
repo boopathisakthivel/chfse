@@ -94,7 +94,7 @@ workflows:
       - docs-deploy:
           requires:
             - test
-            - docs-build
+            - docs
           filters:
             branches:
               only: master
