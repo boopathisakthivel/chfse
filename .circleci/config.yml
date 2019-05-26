@@ -62,14 +62,17 @@ jobs:
           name: build site
           command: npm run docs
       - persist_to_workspace:
-          paths: _book
+          root: /tmp/chfse/docs
+          paths: 
+            - _book/index.html
+            - _book/gitbook/*
   docs-deploy:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
       - attach_workspace:
-          at: _book
+          at: /tmp/chfse/docs
       - run:
           name: Install and configure dependencies
           command: |
