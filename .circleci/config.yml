@@ -62,6 +62,14 @@ jobs:
       - run:
           name: build site
           command: npm run docs
+      - run:
+          name: Install and configure dependencies
+          command: |
+            git config user.email "boopathisakthivel.in@gmail.com"
+            git config user.name "Boopathi Sakthivel"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npm run docs-deploy
       - persist_to_workspace:
           root: ~/app
           paths: 
@@ -108,13 +116,6 @@ workflows:
       - docs-build:
           requires:
             - test
-          filters:
-            branches:
-              only: master
-      - docs-deploy:
-          requires:
-            - test
-            - docs-build
           filters:
             branches:
               only: master
