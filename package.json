@@ -8,11 +8,13 @@
   "scripts": {
     "docs": "gitbook build",
     "docs-serve": "gitbook serve",
-	  "testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
+    "docs-deploy": "gh-pages --dist _book",
+    "testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
     "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test_result/coverage"
   },
   "devDependencies": {
-    "gitbook-cli": "^2.3.2"
+    "gitbook-cli": "^2.3.2",
+    "gh-pages": "^2.0.1"
   },
   "dependencies": {
     "chai": "^4.2.0",
