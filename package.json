@@ -6,8 +6,13 @@
   "author": "Boopathi Sakthivel <boopathisakthivel.in@gmail.com>",
   "license": "MIT",
   "scripts": {
-	"testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
+    "docs": "gitbook build",
+    "docs-serve": "gitbook serve",
+	  "testUnit": "nyc ./node_modules/.bin/mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test_result/test-results.xml test/spec",
     "cover": "nyc report --reporter=html --reporter=text --reporter=lcovonly --report-dir=test_result/coverage"
+  },
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
   },
   "dependencies": {
     "chai": "^4.2.0",

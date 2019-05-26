@@ -41,8 +41,44 @@ jobs:
       - store_test_results:
           path: test_result
           prefix: tests
-
-
+  docs:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: build site
+          command: npm run docs
+      - persist_to_workspace:
+          paths: _book
+  docs-deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: _book
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "boopathisakthivel.in@gmail.com"
+            git config user.name "Boopathi Sakthivel"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist _book
 
 workflows:
   version: 2
@@ -52,6 +88,13 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            branches:
+              only: master
+      - docs-deploy:
+          requires:
+            - test
+            - docs-build
           filters:
             branches:
               only: master
