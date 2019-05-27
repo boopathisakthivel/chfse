@@ -25,7 +25,3 @@ yarn-error.log*
 
 #Docs generated
 /_book
-
-#Unwanted
-/732352-hackathon-backend/*
-/backup/*

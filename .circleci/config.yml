@@ -1,0 +1,121 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  test:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install npm wee
+          command: npm install
+      - run:
+          name: Test
+          command: npm run testUnit
+      - run:
+          name: Generate code coverage
+          command: npm run cover
+      - store_artifacts:
+          path: test_result/test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: test_result/coverage
+          prefix: coverage
+      - store_test_results:
+          path: test_result
+          prefix: tests
+  docs-build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: build site
+          command: npm run docs
+      - run:
+          name: Install and configure dependencies
+          command: |
+            git config user.email "boopathisakthivel.in@gmail.com"
+            git config user.name "Boopathi Sakthivel"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npm run docs-deploy
+      - persist_to_workspace:
+          root: ~/app
+          paths: 
+            - _book/*
+  docs-deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Install and configure dependencies
+          command: |
+            git config user.email "boopathisakthivel.in@gmail.com"
+            git config user.name "Boopathi Sakthivel"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: npm run docs-deploy
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - docs-build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
