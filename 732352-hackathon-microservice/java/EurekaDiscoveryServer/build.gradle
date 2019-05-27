@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://repo.spring.io/milestone'
+    }
+
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+	
+	jcenter()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.1.5.RELEASE'
+    implementation  'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:2.1.0.RC3'
+    implementation  'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.1.0.RC3'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.5.RELEASE'
+}
+
+configurations {
+    provided.all*.exclude group: 'javax.servlet'
+	provided.all*.exclude group: 'com.google.code.gson'
+	
+}
+group = 'com.eurekadiscoveryserver'
+version = '0.0.1-SNAPSHOT'
+description = 'EurekaDiscoveryServer'
+sourceCompatibility = '1.8'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
