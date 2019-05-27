@@ -5,25 +5,25 @@ This is internal assessment/POC project. It aims to explore multiple JVM languag
 
 # Technology Overview
 
-### Micro service 1 - EurekaDiscoveryServer-Scala
+### [Micro service 1 - EurekaDiscoveryServer-Scala](https://github.com/boopathisakthivel/chfse/tree/master/732352-hackathon-microservice/EurekaDiscoveryServer-Scala)
 
 - Scala
 - SpringBoot
 - Gradle
 
-### Micro service 2 - ZuulService-Kotlin
+### [Micro service 2 - ZuulService-Kotlin](https://github.com/boopathisakthivel/chfse/tree/master/732352-hackathon-backend)
 
 - Kotlin
 - SpringBoot
 - Gradle
 
-### Micro service 3 - SkillsTechnologies-Groovy
+### [Micro service 3 - SkillsTechnologies-Groovy](https://github.com/boopathisakthivel/chfse/tree/master/732352-hackathon-microservice/SkillsTechnologies-Groovy)
 
 - Groovy
 - SpringBoot
 - Gradle
 
-### Micro service 4 - 732352-hackathon-backend
+### [Micro service 4 - 732352-hackathon-backend](https://github.com/boopathisakthivel/chfse/tree/master/732352-hackathon-backend)
 
 - Java
 - SpringBoot
@@ -31,7 +31,7 @@ This is internal assessment/POC project. It aims to explore multiple JVM languag
 - MongoDB
 
 
-### Frontend - 732352-hackathon-frontend
+### [Frontend - 732352-hackathon-frontend](https://github.com/boopathisakthivel/chfse/tree/master/732352-hackathon-frontend)
 
 - ReactJS
 - React-Redux
