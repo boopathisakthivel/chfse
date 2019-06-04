@@ -44,3 +44,18 @@
 	
 	* Build Image -> docker build -t spring-docker .
 	* Run Image -> Docker run –p 8080:8080 spring-docker
+	
+## Spring Boot Test
+	- https://moelholm.com/2016/10/22/spring-boot-separating-tests/
+
+	- https://spring.io/guides/gs/testing-web/
+
+	- https://www.tutorialspoint.com/spring_boot/spring_boot_rest_controller_unit_test.htm
+
+	- https://spring.io/blog/2016/04/15/testing-improvements-in-spring-boot-1-4
+
+	- https://www.baeldung.com/spring-boot-testing 
+	
+## Gradle Plugins
+
+	- https://www.mkyong.com/gradle/gradle-display-test-results-in-console/

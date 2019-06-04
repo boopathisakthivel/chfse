@@ -1,16 +1,23 @@
-plugins {
-    id 'java'
-    id 'maven-publish'
-	id 'org.springframework.boot' version '2.1.5.RELEASE'
+buildscript {
+    ext { springBootVersion = '2.1.4.RELEASE' }
+    repositories { mavenCentral() }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") }
 }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.hackathon'
 version = '0.0.1-SNAPSHOT'
-description = """732352-hackathon-backend"""
+description = "732352-hackathon-backend"
 
-sourceCompatibility = '1.8'
-
-
+bootJar {
+    baseName = 'blabs-tester'
+    version =  '0.1.0'
+}
 repositories {
     mavenLocal()
     maven {
@@ -23,27 +30,63 @@ repositories {
 	
 	jcenter()
 }
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
 configurations {
     provided.all*.exclude group: 'javax.servlet'
 	provided.all*.exclude group: 'com.google.code.gson'
 	
 }
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version:'2.1.5.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.1.5.RELEASE'
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version:'2.1.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version:'2.1.1.RELEASE'
     compile group: 'org.apache.poi', name: 'poi', version:'3.17'
     compile group: 'org.apache.poi', name: 'poi-ooxml', version:'3.17'
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.1.5.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
+
+//check.dependsOn integTest
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+
+
+sourceSets {
+    main {
+        java {
+            srcDir 'main'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+    integTest {
+        java.srcDir file('src/integTest/java')
+        resources.srcDir file('src/integTest/resources')
+        compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
+task integTest(type: Test) {
+    description = 'Runs the integration tests.'
+    group = 'verification'
+    testClassesDirs = sourceSets.integTest.output.classesDirs
+    classpath = sourceSets.integTest.runtimeClasspath
+    mustRunAfter test
+}
+
+test {
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
 }
